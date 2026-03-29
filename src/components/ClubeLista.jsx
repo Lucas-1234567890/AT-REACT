@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NovoClube from './NovoClube';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 
 function ClubeLista() {
   const [clubes, setClubes] = useState([]);
@@ -32,7 +33,12 @@ function ClubeLista() {
         ))}
       </ul>
       {/* <NovoClube onAdicionar={adicionarClube} /> */}
-      <Link to="/adicionar">+ Adicionar Clube</Link>
+      <NavLink
+        to="/adicionar"
+        style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal', color: isActive ? 'blue' : 'inherit' })}
+      >
+        + Adicionar Clube
+      </NavLink>
     </div>
   );
 }

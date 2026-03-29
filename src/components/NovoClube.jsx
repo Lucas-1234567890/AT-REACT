@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NovoClube({ onAdicionar }) {
   const [nome, setNome] = useState('');
@@ -22,7 +22,12 @@ function NovoClube({ onAdicionar }) {
           onChange={(e) => setNome(e.target.value)}
         />
         <button type="submit">Adicionar</button>
-        <Link to="/">← Voltar para a lista</Link>
+            <NavLink
+                to="/"
+                style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal', color: isActive ? 'blue' : 'inherit' })}
+            >
+                Voltar a para a lista
+            </NavLink>
       </form>
     </div>
   );
