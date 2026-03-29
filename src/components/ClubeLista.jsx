@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import NovoClube from './NovoClube';
 import { NavLink, Link } from 'react-router-dom';
 
 function ClubeLista({ clubes, onExcluir }) {
