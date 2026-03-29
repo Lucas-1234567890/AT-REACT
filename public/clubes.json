@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nome": "Leitores do Amanhã", "descricao": "Clube focado em ficção científica e futurismo.", "sessoes": ["Duna - Cap. 1-5", "Fundação - Parte 1"] },
+  { "id": 2, "nome": "Clássicos Eternos", "descricao": "Dedicado às grandes obras da literatura universal.", "sessoes": ["Dom Casmurro - Caps iniciais", "Grande Sertão: Veredas"] },
+  { "id": 3, "nome": "Mistério & Suspense", "descricao": "Para amantes de thrillers e histórias de detetive.", "sessoes": ["O Nome da Rosa", "Sherlock Holmes Vol.1"] }
+]
