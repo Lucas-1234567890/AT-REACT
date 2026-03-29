@@ -15,12 +15,20 @@ function ClubeLista() {
     setClubes([...clubes, { id: Date.now(), ...novoClube }]);
   }
 
+  function excluirClube(id) {
+  setClubes(clubes.filter((c) => c.id !== id));
+  }
+
+  
   return (
     <div>
       <h1>Clubes de Leitura</h1>
       <ul>
         {clubes.map((clube) => (
-          <li key={clube.id}>{clube.nome}</li>
+          <li key={clube.id}>
+            {clube.nome}
+            <button onClick={() => excluirClube(clube.id)}>Excluir</button>
+          </li>
         ))}
       </ul>
       {/* <NovoClube onAdicionar={adicionarClube} /> */}
