@@ -4,7 +4,7 @@ Aplicação web desenvolvida como Atividade Avaliativa da disciplina de React. O
 
 ---
 
-## 🚀 Como rodar
+## Como rodar
 
 ```bash
 npm install
@@ -15,7 +15,7 @@ Acesse em: `http://localhost:5173`
 
 ---
 
-## 🗂 Estrutura de pastas
+## Estrutura de pastas
 
 ```
 AT-REACT/
@@ -36,7 +36,7 @@ AT-REACT/
 
 ---
 
-## 📋 Tarefas implementadas
+## Tarefas implementadas
 
 ### Tarefa 1 — Estrutura básica do componente
 Criação do componente funcional `ClubeLista` com título e lista vazia (`<ul>`).  
@@ -128,7 +128,7 @@ Criação de `ClubesContext` com `createContext`, `useReducer` e `useEffect`. O 
 
 ---
 
-## ✨ Tarefa Extra — Estilização da Interface
+## Tarefa Extra — Estilização da Interface
 
 Aplicação de estilos globais para melhorar a experiência visual da aplicação:
 
