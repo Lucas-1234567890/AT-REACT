@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function NovoClube({ onAdicionar }) {
   const [nome, setNome] = useState('');
@@ -21,6 +22,7 @@ function NovoClube({ onAdicionar }) {
           onChange={(e) => setNome(e.target.value)}
         />
         <button type="submit">Adicionar</button>
+        <Link to="/">← Voltar para a lista</Link>
       </form>
     </div>
   );
