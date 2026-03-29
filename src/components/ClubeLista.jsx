@@ -6,32 +6,54 @@ function ClubeLista({ clubes, onExcluir }) {
 
   return (
     <div>
-      <h1>Clubes de Leitura</h1>
-      <ul>
-        {clubes.map((clube) => (
-          <li key={clube.id}>
-            <Link to={`/clube/${clube.id}`}>{clube.nome}</Link>
-            <button onClick={() => setConfirmarId(clube.id)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
+      <div className="page-header">
+        <h1>📚 Clubes de Leitura</h1>
+        <p className="page-subtitle">Gerencie e explore os clubes cadastrados</p>
+      </div>
+
+      {clubes.length === 0 ? (
+        <p className="lista-vazia">Nenhum clube cadastrado ainda.</p>
+      ) : (
+        <ul>
+          {clubes.map((clube) => (
+            <li key={clube.id}>
+              <Link to={`/clube/${clube.id}`}>{clube.nome}</Link>
+              <button
+                className="btn-excluir"
+                onClick={() => setConfirmarId(clube.id)}
+              >
+                Excluir
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {confirmarId && (
-        <div style={{ border: '1px solid red', padding: 16 }}>
-          <p>Confirmar exclusão?</p>
-          <button onClick={() => { onExcluir(confirmarId); setConfirmarId(null); }}>
-            Sim, excluir
-          </button>
-          <button onClick={() => setConfirmarId(null)}>Cancelar</button>
+        <div className="modal-confirmacao">
+          <p>Deseja excluir este clube?</p>
+          <div className="modal-acoes">
+            <button
+              className="btn-confirmar"
+              onClick={() => { onExcluir(confirmarId); setConfirmarId(null); }}
+            >
+              Sim, excluir
+            </button>
+            <button className="btn-secondary" onClick={() => setConfirmarId(null)}>
+              Cancelar
+            </button>
+          </div>
         </div>
       )}
 
-      <NavLink
-        to="/adicionar"
-        style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal', color: isActive ? 'blue' : 'inherit' })}
-      >
-        + Adicionar Clube
-      </NavLink>
+      <div className="nav-actions" style={{ marginTop: 24 }}>
+        <NavLink
+          to="/adicionar"
+          className="btn-add"
+        >
+          + Novo Clube
+        </NavLink>
+      </div>
     </div>
   );
 }

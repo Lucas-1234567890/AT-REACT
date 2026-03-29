@@ -13,15 +13,21 @@ function DescricaoExpansivel({ texto }) {
   }, [texto]);
 
   return (
-    <div>
+    <div className="descricao-wrap">
       <div
         ref={ref}
-        style={{ maxHeight: expandido ? altura : 40, overflow: 'hidden', transition: 'max-height 0.3s' }}
+        style={{
+          maxHeight: expandido ? altura : 48,
+          overflow: 'hidden',
+          transition: 'max-height 0.3s ease',
+          color: 'var(--text)',
+          lineHeight: '1.6',
+        }}
       >
         {texto}
       </div>
-      <button onClick={() => setExpandido(!expandido)}>
-        {expandido ? 'Ver menos' : 'Ver mais'}
+      <button className="btn-expandir" onClick={() => setExpandido(!expandido)}>
+        {expandido ? '▲ Ver menos' : '▼ Ver mais'}
       </button>
     </div>
   );
@@ -35,11 +41,20 @@ function DetalhesClube({ clubes }) {
 
   return (
     <div>
-      <h2>{clube.nome}</h2>
-      <DescricaoExpansivel texto={clube.descricao} /> {/* ← aqui */}
-      <Link to="sessoes">Ver Sessões</Link>
+      <Link to="/" className="link-back">← Voltar para a lista</Link>
+
+      <div className="clube-detalhes">
+        <h2>{clube.nome}</h2>
+        <DescricaoExpansivel texto={clube.descricao} />
+
+        <div className="nav-actions">
+          <Link to="sessoes" className="btn-add">
+            📖 Ver Sessões
+          </Link>
+        </div>
+      </div>
+
       <Outlet />
-      <Link to="/">← Voltar</Link>
     </div>
   );
 }

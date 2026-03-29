@@ -5,6 +5,7 @@ import NovoClube from './components/NovoClube';
 import DetalhesClube from './components/DetalhesClube';
 import SessoesClube from './components/SessoesClube'; 
 
+
 function reducer(state, action) {
   switch (action.type) {
     case 'CARREGAR':  return action.payload;

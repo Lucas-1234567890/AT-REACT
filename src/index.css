@@ -1,111 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --bg: #f8f5f0;
+  --surface: #ffffff;
+  --border: #e2dbd4;
+  --text: #4a3f35;
+  --text-light: #9c8c80;
+  --heading: #1e1510;
+  --accent: #c0602a;
+  --accent-light: #f0e4da;
+  --accent-hover: #a34e1f;
+  --danger: #c0392b;
+  --danger-light: #fdf0ef;
+  --success: #2d7a4f;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(30, 21, 16, 0.08);
+  --shadow-lg: 0 8px 32px rgba(30, 21, 16, 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  max-width: 720px;
   margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  padding: 40px 24px 80px;
+  text-align: left;
+  border: none;
+  min-height: unset;
+}
+
+/* ── Tipografia ── */
+h1 {
+  font-family: 'Lora', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--heading);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+p {
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+/* ── Layout base de página ── */
+.page-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-subtitle {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* ── Lista de clubes ── */
+ul {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
+li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+li a {
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--heading);
+  text-decoration: none;
+  flex: 1;
+  font-size: 1rem;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+li a:hover {
+  color: var(--accent);
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+/* ── Botões ── */
+button {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Botão primário */
+button[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+button[type="submit"]:disabled {
+  background: var(--border);
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* Botão de excluir */
+button.btn-excluir {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+button.btn-excluir:hover {
+  background: var(--danger-light);
+  border-color: var(--danger);
+}
+
+/* Botão secundário genérico */
+button.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+button.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Links de navegação ── */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* NavLink ativo */
+a.active {
+  font-weight: 600;
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+
+/* Link de voltar */
+.link-back {
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  gap: 6px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.link-back:hover {
+  color: var(--accent);
+}
+
+/* ── Formulário ── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input[type="text"] {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--heading);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+input[type="text"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(192, 96, 42, 0.12);
+}
+
+input[type="text"]::placeholder {
+  color: var(--text-light);
+}
+
+.campo-erro {
+  font-size: 0.82rem;
+  color: var(--danger);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Modal de confirmação ── */
+.modal-confirmacao {
+  background: var(--danger-light);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.modal-confirmacao p {
+  font-weight: 500;
+  color: var(--danger);
+  margin: 0;
+  flex: 1;
+}
+
+.modal-acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-confirmar {
+  background: var(--danger) !important;
+  color: #fff !important;
+  padding: 7px 14px;
+  font-size: 0.85rem !important;
+}
+
+.btn-confirmar:hover {
+  background: #a93226 !important;
+}
+
+/* ── Detalhes do clube ── */
+.clube-detalhes {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.descricao-wrap {
+  margin-bottom: 16px;
+}
+
+.btn-expandir {
+  background: transparent;
+  color: var(--accent);
+  padding: 4px 0;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.btn-expandir:hover {
+  color: var(--accent-hover);
+}
+
+/* ── Sessões ── */
+.sessoes-card {
+  background: var(--accent-light);
+  border: 1px solid #dcc7b8;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+
+.sessoes-card ul {
+  margin-bottom: 0;
+}
+
+.sessoes-card li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  justify-content: flex-start;
+}
+
+.sessoes-card li:hover {
+  border-color: var(--accent);
+}
+
+/* ── Nav / rodapé de ação ── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-add:hover {
+  background: var(--accent-hover);
+  color: #fff !important;
+}
+
+/* ── Badge vazio ── */
+.lista-vazia {
+  text-align: center;
+  color: var(--text-light);
+  padding: 40px 0;
+  font-size: 0.95rem;
+}
+
+/* ── Responsivo ── */
+@media (max-width: 500px) {
+  #root {
+    padding: 24px 16px 60px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .modal-confirmacao {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

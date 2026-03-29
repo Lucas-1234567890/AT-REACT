@@ -7,8 +7,8 @@ function SessoesClube({ clubes }) {
   if (!clube) return <p>Clube não encontrado.</p>;
 
   return (
-    <div>
-      <h3>Sessões de {clube.nome}</h3>
+    <div className="sessoes-card">
+      <h3>Sessões de leitura</h3>
       <ul>
         {(clube.sessoes || []).map((s, i) => (
           <li key={i}>{s}</li>
