@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import ClubeLista from './components/ClubeLista';
 import NovoClube from './components/NovoClube';
 import DetalhesClube from './components/DetalhesClube';
+import SessoesClube from './components/SessoesClube'; 
 
 function reducer(state, action) {
   switch (action.type) {
@@ -35,7 +36,10 @@ function App() {
           onAdicionar={(novoClube) => dispatch({ type: 'ADICIONAR', payload: novoClube })}
         />}
       />
-      <Route path="/clube/:id" element={<DetalhesClube clubes={clubes} />} />
+      <Route path="/clube/:id" element={<DetalhesClube clubes={clubes} />}>
+       <Route path="sessoes" element={<SessoesClube clubes={clubes} />} />
+      </Route>
+     
     </Routes>
   );
 }

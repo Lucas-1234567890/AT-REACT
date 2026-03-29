@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 function DetalhesClube({ clubes }) {
   const { id } = useParams();
@@ -10,6 +11,8 @@ function DetalhesClube({ clubes }) {
     <div>
       <h2>{clube.nome}</h2>
       <p>{clube.descricao}</p>
+      <Link to="sessoes">Ver Sessões</Link>
+      <Outlet /> {/* ← SessoesClube renderiza aqui */}
       <Link to="/">← Voltar</Link>
     </div>
   );
