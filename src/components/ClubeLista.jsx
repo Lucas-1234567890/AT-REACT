@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import NovoClube from './NovoClube';
 
 function ClubeLista() {
   const [clubes, setClubes] = useState([]);
@@ -9,6 +10,10 @@ function ClubeLista() {
       .then((data) => setClubes(data));
   }, []);
 
+  function adicionarClube(novoClube) {
+    setClubes([...clubes, { id: Date.now(), ...novoClube }]);
+  }
+
   return (
     <div>
       <h1>Clubes de Leitura</h1>
@@ -17,6 +22,7 @@ function ClubeLista() {
           <li key={clube.id}>{clube.nome}</li>
         ))}
       </ul>
+      <NovoClube onAdicionar={adicionarClube} />
     </div>
   );
 }

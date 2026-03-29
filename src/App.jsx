@@ -1,13 +1,7 @@
 import ClubeLista from './components/ClubeLista';
-import NovoClube from './components/NovoClube';
 
 function App() {
-  return (
-    <div>
-      <ClubeLista />
-      <NovoClube />
-    </div>
-  );
+  return <ClubeLista />;
 }
 
 export default App;

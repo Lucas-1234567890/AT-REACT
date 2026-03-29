@@ -1,12 +1,19 @@
 import { useState } from 'react';
 
-function NovoClube() {
+function NovoClube({ onAdicionar }) {
   const [nome, setNome] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!nome.trim()) return;
+    onAdicionar({ nome });
+    setNome('');
+  }
 
   return (
     <div>
       <h2>Adicionar Novo Clube</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Nome do clube"
