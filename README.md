@@ -128,6 +128,17 @@ Criação de `ClubesContext` com `createContext`, `useReducer` e `useEffect`. O 
 
 ---
 
+## ✨ Tarefa Extra — Estilização da Interface
+
+Aplicação de estilos globais para melhorar a experiência visual da aplicação:
+
+- Tipografia com fontes Google Fonts: **Lora** (títulos) + **DM Sans** (corpo)
+- Paleta de cores terrosa/quente com variáveis CSS (`--accent`, `--surface`, `--border`...)
+- Cards com borda, sombra sutil e hover animado
+- Formulário estilizado com feedback visual no foco
+- Modal de confirmação de exclusão com destaque em vermelho
+- Layout responsivo para telas menores
+- Botões com estados: hover, disabled e active
 
 ---
 
